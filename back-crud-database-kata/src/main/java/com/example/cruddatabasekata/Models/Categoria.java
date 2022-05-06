@@ -3,6 +3,7 @@ package com.example.cruddatabasekata.Models;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  long  id ;
+    @NotBlank(message = "Name  es obligatorio")
     private  String name;
     @OneToMany(
             cascade = CascadeType.ALL,
