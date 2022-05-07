@@ -17,7 +17,6 @@ const FormCategoria = () => {
       });
       formRef.current.reset();
     }
-
     setCategory("");
   };
 

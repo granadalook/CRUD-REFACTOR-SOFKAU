@@ -1,5 +1,9 @@
 function reducer(state, action) {
   switch (action.type) {
+    case "get-categories":
+      const newState = [...state, ...action.payload];
+      console.log(newState);
+      return newState;
     case "add-note":
       const newNote = {
         id: Math.floor(Math.random() * 100),
@@ -7,7 +11,6 @@ function reducer(state, action) {
         done: false,
         fkCategoryId: action.categoryId,
       };
-      console.log(newNote);
       if (newNote) {
         const categoryParentNewNote = state.find(
           (category) => category.id === action.categoryId
@@ -17,7 +20,6 @@ function reducer(state, action) {
           ...categoryParentNewNote,
           notes: parentNotes,
         };
-        console.log(parentWithNewNote);
         const newState = state.map((category) =>
           category.id === action.categoryId
             ? { ...parentWithNewNote }
@@ -45,13 +47,11 @@ function reducer(state, action) {
 
     case "update-note":
       const categoryParentToUpdateNote = state.find(
-        (category) => category.id === action.payload.fkCategoryId
+        (category) => category.id === action.payload.note.fkCategoryId
       );
       if (categoryParentToUpdateNote) {
         const notesWithUpdated = categoryParentToUpdateNote.notes.map((note) =>
-          note.id === action.payload.id
-            ? { ...note, title: action.newTitle }
-            : note
+          note.id === action.payload.note.id ? { ...action.payload.note } : note
         );
         const newState = state.map((category) =>
           category.id === categoryParentToUpdateNote.id
