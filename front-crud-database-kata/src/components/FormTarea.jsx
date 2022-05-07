@@ -16,6 +16,7 @@ const FormTarea = ({ categoryId }) => {
       });
       formRef.current.reset();
     }
+    setNote("");
   };
 
   const { state, dispatch } = useContext(Store);

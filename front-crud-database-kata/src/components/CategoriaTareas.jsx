@@ -51,12 +51,7 @@ const CategoryNote = () => {
                 <FormTarea categoryId={category.id} />
               </div>
               {category.notes.map((note) => (
-                <Tarea
-                  key={note.id}
-                  removeNote={removeNote}
-                  note={note}
-                  updateNote={updateNote}
-                />
+                <Tarea key={note.id} removeNote={removeNote} note={note} />
               ))}{" "}
             </div>
           </div>

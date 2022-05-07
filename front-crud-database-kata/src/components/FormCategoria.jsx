@@ -17,6 +17,8 @@ const FormCategoria = () => {
       });
       formRef.current.reset();
     }
+
+    setCategory("");
   };
 
   const addCategory = (event) => {
