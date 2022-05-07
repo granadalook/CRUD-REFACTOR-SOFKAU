@@ -1,7 +1,7 @@
 import { useContext, useState, useRef } from "react";
 import { Store } from "../state/StoreProvider";
 
-const FormTarea = ({ categoryId }) => {
+const FormNote = ({ categoryId }) => {
   const formRef = useRef(null);
 
   const [note, setNote] = useState("");
@@ -14,6 +14,7 @@ const FormTarea = ({ categoryId }) => {
         title: note,
         categoryId: categoryId,
       });
+
       formRef.current.reset();
     }
     setNote("");
@@ -44,4 +45,4 @@ const FormTarea = ({ categoryId }) => {
   );
 };
 
-export default FormTarea;
+export default FormNote;

@@ -3,7 +3,7 @@ import reducer from "./Reducer";
 
 const initialState = [
   {
-    id: "0",
+    id: 101,
     name: "Categoria  0",
     notes: [
       {
@@ -15,7 +15,7 @@ const initialState = [
     ],
   },
   {
-    id: "1",
+    id: 102,
     name: "Categoria 1",
     notes: [
       {

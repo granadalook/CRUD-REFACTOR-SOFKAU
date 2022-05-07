@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Store } from "../state/StoreProvider";
-import Categoria from "./Categoria";
-import FormTarea from "./FormTarea";
-import Tarea from "./Tarea";
+import Category from "./Categoria";
+import FormNote from "./FormTarea";
+import Note from "./Tarea";
 
 const CategoryNote = () => {
   const { state, dispatch } = useContext(Store);
@@ -38,7 +38,7 @@ const CategoryNote = () => {
   }, []);
 
   const fetchAllCategories = async () => {
-    let response = await fetch(`http://localhost:8081/api/get/categories`);
+    let response = await fetch(`http://localhost:8080/api/get/categories`);
     let data = await response.json();
     return data;
   };
@@ -49,16 +49,14 @@ const CategoryNote = () => {
         {state.map((category) => (
           <div key={category.id}>
             <hr />
-
             <div className="m-5 border rounded-3 border-5 border-success">
-              {" "}
-              <Categoria category={category} removeCategory={removeCategory} />
+              <Category category={category} removeCategory={removeCategory} />
               <div className="m-5">
-                <FormTarea categoryId={category.id} />
+                <FormNote categoryId={category.id} />
               </div>
               {category.notes.map((note) => (
-                <Tarea key={note.id} removeNote={removeNote} note={note} />
-              ))}{" "}
+                <Note key={note.id} removeNote={removeNote} note={note} />
+              ))}
             </div>
           </div>
         ))}
