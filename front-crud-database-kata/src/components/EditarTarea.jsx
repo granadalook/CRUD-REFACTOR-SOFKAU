@@ -1,6 +1,6 @@
 import { useContext, useState, useRef } from "react";
 
-const EditarTarea = ({ updateNote, note }) => {
+const EditNote = ({ updateNote, note }) => {
   const formRef = useRef(null);
 
   const [noteTitle, setNoteTitle] = useState("");
@@ -33,4 +33,4 @@ const EditarTarea = ({ updateNote, note }) => {
   );
 };
 
-export default EditarTarea;
+export default EditNote;

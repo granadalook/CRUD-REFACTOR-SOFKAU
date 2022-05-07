@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Store } from "../state/StoreProvider";
-import EditarTarea from "./EditarTarea";
+import EditNote from "./EditarTarea";
 
-const Tarea = ({ note, removeNote }) => {
+const Note = ({ note, removeNote }) => {
   const { state, dispatch } = useContext(Store);
 
   const [showEdit, setShowEdit] = useState(false);
@@ -34,6 +34,7 @@ const Tarea = ({ note, removeNote }) => {
   const displayEdit = () => {
     setShowEdit(!showEdit);
   };
+
   return (
     <div className="border border-dark m-3 rounded border-2 d-flex justify-content-evenly bg-success p-2 text-dark bg-opacity-25">
       <h5 className="fw-bold m-2">{`${note.title}`}</h5>
@@ -46,11 +47,9 @@ const Tarea = ({ note, removeNote }) => {
       <button className="btn btn-warning me-2 m-1" onClick={displayEdit}>
         EDITAR
       </button>
-      {showEdit && <EditarTarea updateNote={updateNote} note={note} />}
+      {showEdit && <EditNote updateNote={updateNote} note={note} />}
       <div className="d-flex align-items-center">
-        <label className="form-check-label fs-4 me-2" for="defaultCheck1">
-          OK
-        </label>
+        <label className="form-check-label fs-4 me-2">OK</label>
         <input
           className="form-check-input"
           type="checkbox"
@@ -62,4 +61,4 @@ const Tarea = ({ note, removeNote }) => {
   );
 };
 
-export default Tarea;
+export default Note;

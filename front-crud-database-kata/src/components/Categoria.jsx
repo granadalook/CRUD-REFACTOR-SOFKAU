@@ -1,6 +1,6 @@
 import React from "react";
 
-const Categoria = ({ category, removeCategory }) => {
+const Category = ({ category, removeCategory }) => {
   return (
     <div className="m-3     ">
       <div className="text-center">
@@ -18,4 +18,4 @@ const Categoria = ({ category, removeCategory }) => {
   );
 };
 
-export default Categoria;
+export default Category;
