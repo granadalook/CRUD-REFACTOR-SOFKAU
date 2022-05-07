@@ -2,7 +2,7 @@ function reducer(state, action) {
   switch (action.type) {
     case "get-categories":
       const newState = [...state, ...action.payload];
-      console.log(newState);
+      console.log("newState", newState);
       return newState;
     case "add-note":
       const newNote = {

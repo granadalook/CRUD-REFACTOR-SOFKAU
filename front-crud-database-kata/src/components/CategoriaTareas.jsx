@@ -38,31 +38,26 @@ const CategoryNote = () => {
   }, []);
 
   const fetchAllCategories = async () => {
-    let response = await fetch(`http://localhost:8081/api/get/categories`);
+    let response = await fetch(`http://localhost:8080/api/get/categorias`);
     let data = await response.json();
     return data;
   };
 
   return (
     <div>
-      <h2>
-        {state.map((category) => (
-          <div key={category.id}>
-            <hr />
-
-            <div className="m-5 border rounded-3 border-5 border-success">
-              {" "}
-              <Categoria category={category} removeCategory={removeCategory} />
-              <div className="m-5">
-                <FormTarea categoryId={category.id} />
-              </div>
-              {category.notes.map((note) => (
-                <Tarea key={note.id} removeNote={removeNote} note={note} />
-              ))}{" "}
-            </div>
+      {state.map((category) => (
+        <div key={category.id}>
+          <hr />
+          <div className="m-5 border rounded-3 border-5 border-success">
+            {" "}
+            <Categoria category={category} removeCategory={removeCategory} />
+            <FormTarea categoryId={category.id} />
+            {category.notes.map((note) => (
+              <Tarea key={note.id} removeNote={removeNote} note={note} />
+            ))}{" "}
           </div>
-        ))}
-      </h2>
+        </div>
+      ))}
     </div>
   );
 };

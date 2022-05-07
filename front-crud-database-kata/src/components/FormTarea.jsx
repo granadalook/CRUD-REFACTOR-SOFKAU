@@ -14,6 +14,7 @@ const FormTarea = ({ categoryId }) => {
         title: note,
         categoryId: categoryId,
       });
+      console.log("categoryId form tarea", categoryId);
       formRef.current.reset();
     }
     setNote("");
