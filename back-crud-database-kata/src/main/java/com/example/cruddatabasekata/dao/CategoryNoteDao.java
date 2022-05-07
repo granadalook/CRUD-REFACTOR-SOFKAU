@@ -13,7 +13,7 @@ public interface CategoryNoteDao {
 
     Category createNote(Note note);
 
-    Category updateNote(Note note);
+    Note updateNote(Note note);
 
     void deleteNote(Note note);
 

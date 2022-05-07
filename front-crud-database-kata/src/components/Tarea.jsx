@@ -7,14 +7,26 @@ const Note = ({ note, removeNote }) => {
 
   const [showEdit, setShowEdit] = useState(false);
 
-  const onChecked = (event, note) => {
+  const onChecked = async (event, note) => {
+    const newNote = { ...note, done: !note.done };
     const checked = event.currentTarget.checked;
-    const newNote = { ...note, done: checked };
+    console.log(newNote);
+    let response = await fetch(`http://localhost:8080/api/update/note`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(newNote),
+    });
+
+    console.log(response);
+
+    let noteUpdated = await response.json();
+    console.log(noteUpdated);
     dispatch({
       type: "update-note",
-      payload: {
-        note: newNote,
-      },
+      payload: noteUpdated,
     });
   };
 

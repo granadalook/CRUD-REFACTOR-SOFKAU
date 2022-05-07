@@ -1,38 +1,7 @@
 import React, { createContext, useReducer } from "react";
 import reducer from "./Reducer";
 
-const initialState = [
-  {
-    id: 101,
-    name: "Categoria  0",
-    notes: [
-      {
-        id: "0",
-        title: "Tarea 0",
-        done: false,
-        fkCategoryId: "0",
-      },
-    ],
-  },
-  {
-    id: 102,
-    name: "Categoria 1",
-    notes: [
-      {
-        id: "1",
-        title: "Tarea 0",
-        done: false,
-        fkCategoryId: "1",
-      },
-      {
-        id: "2",
-        title: "Tarea 1",
-        done: false,
-        fkCategoryId: "1",
-      },
-    ],
-  },
-];
+const initialState = [];
 
 const Store = createContext(initialState);
 

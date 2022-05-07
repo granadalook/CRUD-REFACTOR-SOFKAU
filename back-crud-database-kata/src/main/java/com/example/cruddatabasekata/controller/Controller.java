@@ -16,6 +16,7 @@ public class Controller {
     @Autowired
     private CategoryNoteService service;
 
+
     @GetMapping("get/categories")
     public List<Category> getAllCategories(){
         return service.getCategories();
@@ -32,7 +33,7 @@ public class Controller {
     }
 
     @PutMapping("update/note")
-    public Category updateNote(@RequestBody Note note){
+    public Note updateNote(@RequestBody Note note){
         return service.updateNote(note);
     }
 

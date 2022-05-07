@@ -26,7 +26,7 @@ public class CategoryNoteService {
         return categoryNoteService.createNote(note);
     }
 
-    public Category updateNote(Note note){
+    public Note updateNote(Note note){
         return categoryNoteService.updateNote(note);
     }
 
