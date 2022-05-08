@@ -6,6 +6,7 @@ import com.example.cruddatabasekata.entity.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 
 @Service
@@ -22,7 +23,7 @@ public class CategoryNoteService {
         return categoryNoteService.createCategory(category);
     }
 
-    public Category createNote(Note note){
+    public Note createNote(Note note){
         return categoryNoteService.createNote(note);
     }
 
@@ -30,11 +31,11 @@ public class CategoryNoteService {
         return categoryNoteService.updateNote(note);
     }
 
-    public void deleteNote(Note note){
-        categoryNoteService.deleteNote(note);
+    public void deleteNote(Long id){
+        categoryNoteService.deleteNote(id);
     }
 
-    public void deleteCategory(Category category){
-        categoryNoteService.deleteCategory(category);
+    public void deleteCategory(Long id){
+        categoryNoteService.deleteCategory(id);
     }
 }

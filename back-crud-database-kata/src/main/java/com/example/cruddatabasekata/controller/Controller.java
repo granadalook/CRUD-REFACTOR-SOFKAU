@@ -6,6 +6,7 @@ import com.example.cruddatabasekata.service.CategoryNoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 @RestController
@@ -15,7 +16,6 @@ public class Controller {
 
     @Autowired
     private CategoryNoteService service;
-
 
     @GetMapping("get/categories")
     public List<Category> getAllCategories(){
@@ -28,7 +28,7 @@ public class Controller {
     }
 
     @PostMapping("create/note")
-    public Category createNote(@RequestBody Note note){
+    public Note createNote(@RequestBody Note note){
         return service.createNote(note);
     }
 
@@ -37,13 +37,13 @@ public class Controller {
         return service.updateNote(note);
     }
 
-    @DeleteMapping("delete/category")
-    public void deleteCategory(@RequestBody Category category){
-        service.deleteCategory(category);
+    @DeleteMapping("delete/category/{id}")
+    public void deleteCategory(@PathVariable Long id){
+        service.deleteCategory(id);
     }
 
-    @DeleteMapping("delete/note")
-    public void deleteNote(@RequestBody Note note){
-        service.deleteNote(note);
+    @DeleteMapping("delete/note/{id}")
+    public void deleteNote(@PathVariable Long id){
+        service.deleteNote(id);
     }
 }

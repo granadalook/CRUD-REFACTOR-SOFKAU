@@ -11,7 +11,6 @@ const EditNote = ({ updateNote, note }) => {
       setNoteTitle(editedNote);
     }
   };
-
   return (
     <form ref={formRef}>
       <div className="d-flex align-items-center">
@@ -23,10 +22,10 @@ const EditNote = ({ updateNote, note }) => {
           placeholder="Editar tarea"
         />
         <button
-          className="btn btn-warning me-2 m-1"
+          className="btn btn-warning me-4 m-1"
           onClick={(event) => updateNote(event, note, noteTitle, formRef)}
         >
-          <b>EDITAR</b>
+          <b>EDITAR AHORA</b>
         </button>
       </div>
     </form>
